@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Drawing;
 
+#region Namespace
 namespace TelCo.ColorCoder
 {
+    #region User Defined Data Types
     /// <summary>
     /// This class provides the color coding and
     /// mapping of pair number to color and color to pair number.
     /// </summary>
     class ColorMap
     {
+        #region Fields
         /// <summary>
         /// Array of Major colors
         /// </summary>
@@ -17,7 +20,9 @@ namespace TelCo.ColorCoder
         /// Array of minor colors
         /// </summary>
         static Color[] colorMapMinor;
+        #endregion
 
+        #region Static Constructor
         /// <summary>
         /// Static constructor required to initialize static variable
         /// </summary>
@@ -26,7 +31,9 @@ namespace TelCo.ColorCoder
             colorMapMajor = new Color[] { Color.White, Color.Red, Color.Black, Color.Yellow, Color.Violet };
             colorMapMinor = new Color[] { Color.Blue, Color.Orange, Color.Green, Color.Brown, Color.SlateGray };
         }
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Given a pair number function returns the major and minor colors in that order
         /// </summary>
@@ -88,5 +95,8 @@ namespace TelCo.ColorCoder
             }
             return mapOfPairNumberToColor;
         }
+        #endregion
     }
+    #endregion
 }
+#endregion

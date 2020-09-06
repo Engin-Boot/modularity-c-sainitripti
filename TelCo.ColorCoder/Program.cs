@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.Drawing;
 
+#region Namespace
 namespace TelCo.ColorCoder
 {
+    #region User Defined Data Types
     /// <summary>
     /// The 25-pair color code, originally known as even-count color code, 
     /// is a color code used to identify individual conductors in twisted-pair 
@@ -12,6 +14,7 @@ namespace TelCo.ColorCoder
     /// </summary>
     class Program
     {
+        #region Methods
         /// <summary>
         /// Test code for the class
         /// </summary>
@@ -46,5 +49,9 @@ namespace TelCo.ColorCoder
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}", testPair2, pairNumber);
             Debug.Assert(pairNumber == 6);
         }
+        #endregion
     }
+
+    #endregion
 }
+#endregion
