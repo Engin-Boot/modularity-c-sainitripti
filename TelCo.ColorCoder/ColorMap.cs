@@ -7,7 +7,7 @@ namespace TelCo.ColorCoder
     /// This class provides the color coding and
     /// mapping of pair number to color and color to pair number.
     /// </summary>
-    static class ColorMap
+    class ColorMap
     {
         /// <summary>
         /// Array of Major colors
@@ -49,11 +49,7 @@ namespace TelCo.ColorCoder
             int minorIndex = zeroBasedPairNumber % minorSize;
 
             // Construct the return val from the arrays
-            ColorPair pair = new ColorPair()
-            {
-                majorColor = colorMapMajor[majorIndex],
-                minorColor = colorMapMinor[minorIndex]
-            };
+            ColorPair pair = new ColorPair() { majorColor = colorMapMajor[majorIndex], minorColor = colorMapMinor[minorIndex] };
 
             // return the value
             return pair;
@@ -75,13 +71,22 @@ namespace TelCo.ColorCoder
             // If colors can not be found throw an exception
             if (majorIndex == -1 || minorIndex == -1)
             {
-                throw new ArgumentException(
-                    string.Format("Unknown Colors: {0}", pair.ToString()));
+                throw new ArgumentException(string.Format("Unknown Colors: {0}", pair.ToString()));
             }
 
             // Compute pair number and Return  
             // (Note: +1 in compute is because pair number is 1 based, not zero)
             return (majorIndex * colorMapMinor.Length) + (minorIndex + 1);
+        }
+        public override string ToString()
+        {
+            string mapOfPairNumberToColor = "";
+            for(int i = 1 ; i <= colorMapMajor.Length * colorMapMinor.Length ;i++)
+            {
+                ColorPair pair = GetColorFromPairNumber(i);
+                mapOfPairNumberToColor += string.Format("PairNumber:{0}, {1}\n", i, pair.ToString());
+            }
+            return mapOfPairNumberToColor;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace TelCo.ColorCoder
     /// <summary>
     /// data type defined to hold the two colors of clor pair
     /// </summary>
-    internal class ColorPair
+    class ColorPair
     {
         internal Color majorColor;
         internal Color minorColor;
